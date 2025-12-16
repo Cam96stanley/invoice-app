@@ -1,8 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Invoice } from 'src/entities/invoice.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
@@ -10,4 +11,9 @@ export class User {
 
   @Column()
   email: string;
+
+  @OneToMany(() => Invoice, (invoice) => invoice.user, {
+    cascade: true,
+  })
+  invoices: Invoice[];
 }
