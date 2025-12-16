@@ -5,6 +5,8 @@ import { User } from 'src/entities/user.entity';
 import { UsersModule } from './users/users.module';
 import { Invoice } from 'src/entities/invoice.entity';
 import { Item } from 'src/entities/item.entity';
+import { ItemsModule } from './items/items.module';
+import { InvoicesModule } from './invoices/invoices.module';
 
 @Module({
   imports: [
@@ -23,6 +25,8 @@ import { Item } from 'src/entities/item.entity';
       synchronize: true,
     }),
     UsersModule,
+    ItemsModule,
+    InvoicesModule,
   ],
   controllers: [],
   providers: [],
